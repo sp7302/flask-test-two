@@ -17,7 +17,7 @@ def get_connection():
 def valid_flight(origin, destination, departure_time, arrival_time):
     departure = datetime.strptime(departure_time, "%Y-%m-%d %H:%M")
     arrival = datetime.strptime(arrival_time, "%Y-%m-%d %H:%M")
-    if departure < arrival or origin != destination:
+    if departure < arrival and origin != destination:
         return True, ""
     return False, "Invalid time or Origin/Destination"
 
