@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h1>Add Flight</h1>
+
+{% if message %}
+    <p><strong>{{ message }}</strong></p>
+{% endif %}
+
+<form action="{{ url_for('add_flight') }}" method="post">
+    <p>
+        <input name="origin" placeholder="Origin">
+    </p>
+
+    <p>
+        <input name="destination" placeholder="Destination">
+    </p>
+
+    <p>
+        <input name="departure_time" placeholder="Departure time: YYYY-MM-DD HH:MM">
+    </p>
+
+    <p>
+        <input name="arrival_time" placeholder="Arrival time: YYYY-MM-DD HH:MM">
+    </p>
+
+    <input type="submit" value="Add Flight">
+</form>
+
+{% endblock %}

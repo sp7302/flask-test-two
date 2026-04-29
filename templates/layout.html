@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flights</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">All Flights</a>
+        |
+        <a href="{{ url_for('add_flight') }}">Add Flight</a>
+    </nav>
+
+    <hr>
+
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

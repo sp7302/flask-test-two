@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if flight is none %}
+
+<h1>Flight not found</h1>
+
+{% else %}
+
+<h1>{{ flight.origin }} to {{ flight.destination }}</h1>
+
+<ul>
+    <li>Departure: {{ flight.departure_time }}</li>
+    <li>Arrival: {{ flight.arrival_time }}</li>
+</ul>
+
+<h2>Passengers</h2>
+
+<ul>
+    {% for passenger in passengers %}
+    <li>{{ passenger.name }}</li>
+    {% else %}
+    <li>No passengers on this flight.</li>
+    {% endfor %}
+</ul>
+
+<h2>Add Passenger</h2>
+
+<form action="{{ url_for('book', flight_id=flight.id) }}" method="post">
+    <input name="passenger" placeholder="Passenger name">
+    <input type="submit" value="Book">
+</form>
+
+{% endif %}
+
+{% endblock %}
